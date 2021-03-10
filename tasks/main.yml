@@ -19,3 +19,12 @@
         use-standard-socket
         default-cache-ttl 600
         max-cache-ttl 7200
+
+  - blockinfile:
+      path: ~/.zprofile
+      create: yes
+      block: |
+        export GPG_TTY="$(tty)"
+        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+        gpgconf --launch gpg-agent
+        zsh
