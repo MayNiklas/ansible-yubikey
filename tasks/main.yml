@@ -9,6 +9,10 @@
     - gnupg2
     - pinentry-mac
 
+- name: Create directory ~/.gnupg if it does not exist
+  file:
+    path: ~/.gnupg/
+    state: directory
 
 - blockinfile:
     path: ~/.gnupg/gpg-agent.conf
