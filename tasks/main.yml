@@ -1,2 +1,10 @@
 ---
 # tasks file for ansible-yubikey-mac
+
+- name: Ensure gnupg2 & pinentry-mac are installed
+  homebrew:
+    name: "{{ item.name }}"
+    state: installed
+  loop:
+    - gnupg2
+    - pinentry-mac
