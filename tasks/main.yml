@@ -10,13 +10,18 @@
     - pinentry-mac
 
 - name: Create directory ~/.gnupg if it does not exist
+  become: true
   file:
     path: "{{ ansible_env.HOME }}/.gnupg"
     state: directory
+    owner: "{{ ansible_env.USER }}"
 
-- blockinfile:
+- name: create ~/.gnupg/gpg-agent.conf
+  become: true
+  blockinfile:
     path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     create: yes
+    owner: "{{ ansible_env.USER }}"
     block: |
       pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
       enable-ssh-support
@@ -25,9 +30,12 @@
       default-cache-ttl 600
       max-cache-ttl 7200
 
-- blockinfile:
-    path: ~ "{{ ansible_env.HOME }}/.zprofile"
+- name: create ~/.zprofile
+  become: true
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.zprofile"
     create: yes
+    owner: "{{ ansible_env.USER }}"
     block: |
       export GPG_TTY="$(tty)"
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
