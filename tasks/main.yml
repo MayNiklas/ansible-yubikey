@@ -25,12 +25,10 @@
     owner: "{{ ansible_env.USER }}"
     mode: 0600
     block: |
-      pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
+      pinentry-program /usr/local/bin/pinentry-mac
       enable-ssh-support
-      write-env-file
-      use-standard-socket
-      default-cache-ttl 600
-      max-cache-ttl 7200
+      default-cache-ttl 60
+      max-cache-ttl 120
 
 - name: create ~/.zprofile
   become: true
@@ -43,4 +41,3 @@
       export GPG_TTY="$(tty)"
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
       gpgconf --launch gpg-agent
-      zsh
