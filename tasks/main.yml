@@ -15,6 +15,7 @@
     path: "{{ ansible_env.HOME }}/.gnupg"
     state: directory
     owner: "{{ ansible_env.USER }}"
+    mode: 0700
 
 - name: create ~/.gnupg/gpg-agent.conf
   become: true
@@ -22,6 +23,7 @@
     path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     create: yes
     owner: "{{ ansible_env.USER }}"
+    mode: 0600
     block: |
       pinentry-program /usr/local/MacGPG2/libexec/pinentry-mac.app/Contents/MacOS/pinentry-mac
       enable-ssh-support
@@ -36,6 +38,7 @@
     path: "{{ ansible_env.HOME }}/.zprofile"
     create: yes
     owner: "{{ ansible_env.USER }}"
+    mode: 0600
     block: |
       export GPG_TTY="$(tty)"
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
