@@ -3,7 +3,7 @@
 
 - name: Ensure gnupg2 & pinentry-mac are installed
   homebrew:
-    name: "{{ item.name }}"
+    name: "{{ item }}"
     state: installed
   loop:
     - gnupg2
