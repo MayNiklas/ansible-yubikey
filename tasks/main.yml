@@ -10,7 +10,6 @@
     - pinentry-mac
 
 - name: Create directory ~/.gnupg if it does not exist
-  become: true
   file:
     path: "{{ ansible_env.HOME }}/.gnupg"
     state: directory
@@ -18,7 +17,6 @@
     mode: 0700
 
 - name: create ~/.gnupg/gpg-agent.conf
-  become: true
   blockinfile:
     path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     create: yes
@@ -31,7 +29,6 @@
       max-cache-ttl 120
 
 - name: create ~/.zprofile
-  become: true
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zprofile"
     create: yes
