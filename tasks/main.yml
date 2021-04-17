@@ -28,9 +28,10 @@
       default-cache-ttl 60
       max-cache-ttl 120
 
-- name: create ~/.zprofile
+- name: enable yubikey
   blockinfile:
     path: "{{ ansible_env.HOME }}/.zprofile"
+    marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
     create: yes
     owner: "{{ ansible_env.USER }}"
     mode: 0600
