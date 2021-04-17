@@ -19,6 +19,7 @@
 - name: create ~/.gnupg/gpg-agent.conf
   blockinfile:
     path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
+    marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
     create: yes
     owner: "{{ ansible_env.USER }}"
     mode: 0600
