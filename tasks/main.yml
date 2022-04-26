@@ -16,7 +16,7 @@
     owner: "{{ ansible_env.USER }}"
     mode: 0700
 
-- name: create ~/.gnupg/gpg-agent.conf
+- name: create ~/.gnupg/gpg-agent.conf - Intel Mac
   blockinfile:
     path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
@@ -28,6 +28,21 @@
       enable-ssh-support
       default-cache-ttl 60
       max-cache-ttl 120
+  when: ansible_facts['architecture'] != "arm64" and ansible_facts['os_family'] == "Darwin"
+
+- name: create ~/.gnupg/gpg-agent.conf - Apple Silicon
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
+    marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
+    create: yes
+    owner: "{{ ansible_env.USER }}"
+    mode: 0600
+    block: |
+      pinentry-program /opt/homebrew/bin/pinentry
+      enable-ssh-support
+      default-cache-ttl 60
+      max-cache-ttl 120
+  when: ansible_facts['architecture'] == "arm64" and ansible_facts['os_family'] == "Darwin"
 
 - name: enable yubikey
   blockinfile:
