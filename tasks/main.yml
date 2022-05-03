@@ -44,13 +44,13 @@
       max-cache-ttl 120
   when: ansible_facts['architecture'] == "arm64" and ansible_facts['os_family'] == "Darwin"
 
-- name: enable yubikey
+- name: enable yubikey in ~/.zshrc
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.zprofile"
+    path: "{{ ansible_env.HOME }}/.zshrc"
     marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
     create: yes
     owner: "{{ ansible_env.USER }}"
-    mode: 0600
+    mode: 0644
     block: |
       export GPG_TTY="$(tty)"
       export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
