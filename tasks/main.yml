@@ -36,3 +36,16 @@
     dest: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     owner: "{{ ansible_env.USER }}"
     mode: 0600
+
+- name: enable yubikey in ~/.zshrc
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
+    create: yes
+    owner: "{{ ansible_env.USER }}"
+    mode: 0644
+    block: |
+      # enable SSH via gpg-agent
+      export GPG_TTY="$(tty)"
+      export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+      gpgconf --launch gpg-agent
