@@ -1,5 +1,7 @@
 #jinja2: lstrip_blocks: True
+{% if ansible_distribution == "MacOSX" %}
 pinentry-program {{ ansible_env.HOMEBREW_REPOSITORY }}/bin/pinentry-mac
+{% endif %}
 enable-ssh-support
 default-cache-ttl 60
 max-cache-ttl 120
