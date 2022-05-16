@@ -32,7 +32,7 @@
 
 - name: create ~/.gnupg/gpg-agent.conf
   ansible.builtin.template:
-    src: "gpg-agent.conf.j2"
+    src: gpg-agent.conf.j2
     dest: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     owner: "{{ ansible_env.USER }}"
     mode: 0600
