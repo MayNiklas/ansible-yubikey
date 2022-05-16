@@ -16,23 +16,12 @@
     owner: "{{ ansible_env.USER }}"
     mode: 0700
 
-- name: create ~/.gnupg/gpg-agent.conf - Intel Mac
-  file:
-    src: "{{ ansible_env.PWD }}/roles/ansible-yubikey/files/Intel-gpg-agent.conf"
-    path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
-    state: link
+- name: create ~/.gnupg/gpg-agent.conf
+  template:
+    src: "gpg-agent.conf.j2"
+    dest: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     owner: "{{ ansible_env.USER }}"
     mode: 0600
-  when: ansible_facts['architecture'] != "arm64" and ansible_facts['os_family'] == "Darwin"
-
-- name: create ~/.gnupg/gpg-agent.conf - Apple Silicon
-  file:
-    src: "{{ ansible_env.PWD }}/roles/ansible-yubikey/files/M1-gpg-agent.conf"
-    path: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
-    state: link
-    owner: "{{ ansible_env.USER }}"
-    mode: 0600
-  when: ansible_facts['architecture'] == "arm64" and ansible_facts['os_family'] == "Darwin"
 
 - name: enable yubikey in ~/.zprofile
   blockinfile:

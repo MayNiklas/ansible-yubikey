@@ -1,0 +1,13 @@
+#jinja2: lstrip_blocks: True
+{% if ansible_facts['architecture'] == "arm64" and ansible_facts['os_family'] == "Darwin" %}
+# Apple Silicon Mac
+pinentry-program /opt/homebrew/bin/pinentry-mac
+{% endif %}
+{% if ansible_facts['architecture'] != "arm64" and ansible_facts['os_family'] == "Darwin" %}
+# Intel Mac
+pinentry-program /usr/local/bin/pinentry-mac
+{% endif %}
+enable-ssh-support
+default-cache-ttl 60
+max-cache-ttl 120
+ttyname $GPG_TTY
