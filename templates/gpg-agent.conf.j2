@@ -1,5 +1,5 @@
 #jinja2: lstrip_blocks: True
-{{ ansible_env.HOMEBREW_REPOSITORY }}/bin/pinentry-mac
+pinentry-program {{ ansible_env.HOMEBREW_REPOSITORY }}/bin/pinentry-mac
 enable-ssh-support
 default-cache-ttl 60
 max-cache-ttl 120
