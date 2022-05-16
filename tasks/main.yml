@@ -24,24 +24,24 @@
   when: ansible_distribution == 'Archlinux'
 
 - name: Create directory ~/.gnupg if it does not exist
-  file:
+  ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/.gnupg"
     state: directory
     owner: "{{ ansible_env.USER }}"
     mode: 0700
 
 - name: create ~/.gnupg/gpg-agent.conf
-  template:
+  ansible.builtin.template:
     src: "gpg-agent.conf.j2"
     dest: "{{ ansible_env.HOME }}/.gnupg/gpg-agent.conf"
     owner: "{{ ansible_env.USER }}"
     mode: 0600
 
 - name: enable yubikey in ~/.zshrc
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"
     marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
-    create: yes
+    create: true
     owner: "{{ ansible_env.USER }}"
     mode: 0644
     block: |
