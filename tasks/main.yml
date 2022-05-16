@@ -34,9 +34,9 @@
     mode: 0600
   when: ansible_facts['architecture'] == "arm64" and ansible_facts['os_family'] == "Darwin"
 
-- name: enable yubikey in ~/.zshrc
+- name: enable yubikey in ~/.zprofile
   blockinfile:
-    path: "{{ ansible_env.HOME }}/.zshrc"
+    path: "{{ ansible_env.HOME }}/.zprofile"
     marker: "# {mark} - enable yubikey - ANSIBLE MANAGED BLOCK"
     create: yes
     owner: "{{ ansible_env.USER }}"
