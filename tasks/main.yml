@@ -10,6 +10,19 @@
     - pinentry-mac
   when: ansible_distribution == "MacOSX"
 
+- name: Ensure gnupg, pcsclite, ccid, hopenpgp-tools & yubikey-personalization are installed
+  become: true
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - gnupg
+    - pcsclite
+    - ccid
+    - hopenpgp-tools
+    - yubikey-personalization
+  when: ansible_distribution == 'Archlinux'
+
 - name: Create directory ~/.gnupg if it does not exist
   file:
     path: "{{ ansible_env.HOME }}/.gnupg"
