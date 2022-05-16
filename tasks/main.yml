@@ -8,6 +8,7 @@
   loop:
     - gnupg2
     - pinentry-mac
+  when: ansible_distribution == "MacOSX"
 
 - name: Create directory ~/.gnupg if it does not exist
   file:
