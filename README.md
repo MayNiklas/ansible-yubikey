@@ -1,4 +1,4 @@
-Role Name
+Ansible Yubikey SSH
 =========
 
 [![Galaxy Role][badge-role]][link-galaxy]
@@ -40,8 +40,8 @@ Author Information
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
 
-[link-galaxy]: https://galaxy.ansible.com/mayniklas/ansible_yubikey
+[link-galaxy]: https://galaxy.ansible.com/mayniklas/yubikey_ssh
 
-[//]: # "ansible-galaxy info mayniklas.ansible_yubikey | grep -E 'id: [0-9]' | awk {'print $2'}"
-[badge-role]: https://img.shields.io/ansible/role/59206.svg?style=flat-square
-[badge-downloads]: https://img.shields.io/ansible/role/d/59206.svg?style=flat-square
+[//]: # "ansible-galaxy info mayniklas.yubikey_ssh | grep -E 'id: [0-9]' | awk {'print $2'}"
+[badge-role]: https://img.shields.io/ansible/role/59221.svg?style=flat-square
+[badge-downloads]: https://img.shields.io/ansible/role/d/59221.svg?style=flat-square
