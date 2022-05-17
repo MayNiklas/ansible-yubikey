@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: yubikey-ssh
+  role_name: yubikey_ssh
   author: MayNiklas
   description: Use a YubiKey for SSH via GNUPG (supports MacOS)
 
