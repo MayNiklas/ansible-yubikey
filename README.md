@@ -1,6 +1,8 @@
 Role Name
 =========
 
+[![Galaxy Role][badge-role]][link-galaxy]
+
 A brief description of the role goes here.
 
 Requirements
@@ -36,3 +38,6 @@ Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+[badge-role]: https://img.shields.io/ansible/role/59206
+[link-galaxy]: https://galaxy.ansible.com/mayniklas/ansible_yubikey
