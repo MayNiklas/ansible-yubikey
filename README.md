@@ -2,6 +2,7 @@ Role Name
 =========
 
 [![Galaxy Role][badge-role]][link-galaxy]
+[![Downloads][badge-downloads]][link-galaxy]
 
 A brief description of the role goes here.
 
@@ -39,5 +40,8 @@ Author Information
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
 
-[badge-role]: https://img.shields.io/ansible/role/59206
 [link-galaxy]: https://galaxy.ansible.com/mayniklas/ansible_yubikey
+
+[//]: # "ansible-galaxy info mayniklas.ansible_yubikey | grep -E 'id: [0-9]' | awk {'print $2'}"
+[badge-role]: https://img.shields.io/ansible/role/59206.svg?style=flat-square
+[badge-downloads]: https://img.shields.io/ansible/role/d/59206.svg?style=flat-square
