@@ -3,6 +3,7 @@ Ansible Yubikey SSH
 
 [![Galaxy Role][badge-role]][link-galaxy]
 [![Downloads][badge-downloads]][link-galaxy]
+[![MIT Licensed][badge-license]][link-license]
 
 A brief description of the role goes here.
 
@@ -33,7 +34,7 @@ Including an example of how to use your role (for instance, with variables passe
 License
 -------
 
-BSD
+[MIT][link-license]
 
 Author Information
 ------------------
@@ -45,3 +46,5 @@ An optional section for the role authors to include contact information, or a we
 [//]: # "ansible-galaxy info mayniklas.yubikey_ssh | grep -E 'id: [0-9]' | awk {'print $2'}"
 [badge-role]: https://img.shields.io/ansible/role/59221.svg?style=flat-square
 [badge-downloads]: https://img.shields.io/ansible/role/d/59221.svg?style=flat-square
+[badge-license]: https://img.shields.io/github/license/mayniklas/ansible-yubikey.svg?style=flat-square
+[link-license]: https://raw.githubusercontent.com/mayniklas/ansible-yubikey/main/LICENSE
