@@ -6,7 +6,7 @@
     name: "{{ item }}"
     state: installed
   loop:
-    - gnupg2
+    - gnupg
     - pinentry-mac
   when: ansible_distribution == "MacOSX"
 
